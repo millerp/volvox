@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Category List{% endblock %}
+
+{% block body %}
+    <h1>Category List</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product_category in product_categories %}
+            <tr>
+                <td>{{ product_category.id }}</td>
+                <td>{{ product_category.name }}</td>
+                <td>
+                    <div class="row">
+                        <a class="btn btn-sm btn-info mr-2"
+                           href="{{ path('product_category_show', {'id': product_category.id}) }}">Show</a>
+                        <a class="btn btn-sm btn-primary mr-2"
+                           href="{{ path('product_category_edit', {'id': product_category.id}) }}">Edit</a>
+                        {{ include('product_category/_delete_form.html.twig') }}
+                    </div>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('product_category_new') }}">Create new</a>
+{% endblock %}

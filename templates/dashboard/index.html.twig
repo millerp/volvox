@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                Dashboard
+            </div>
+            <div class="card-body">
+                <h3>Products: {{ products_count }}</h3>
+                <h3>Categories: {{ categories_count }} </h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}
