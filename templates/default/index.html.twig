@@ -7,9 +7,14 @@
         <div class="col-4" style="margin: 150px auto 0 auto;">
             <a class="btn btn-primary" href="{{ path('dashboard') }}">Dashboard</a>
         </div>
-    {% else %}
+    {% elseif is_granted('ROLE_USER') %}
         <div class="col-4" style="margin: 150px auto 0 auto;">
             <a class="btn btn-primary" href="{{ path('app_logout') }}">Logout</a>
         </div>
+    {% else %}
+        <div class="col-4" style="margin: 150px auto 0 auto;">
+            <a class="btn btn-primary" href="{{ path('app_login') }}">Login</a>
+        </div>
     {% endif %}
+
 {% endblock %}
